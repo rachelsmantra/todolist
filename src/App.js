@@ -1,81 +1,94 @@
-import React, { Component } from "react";
-import { render } from "@testing-library/react";
+import React, { useState } from "react";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newItem: "",
-      list: []
-    };
-  }
+import "./App.css";
 
-  updateInput(key, value) {
-    //update react state
-    this.setState({
-      [key]: value
-    });
-  }
+function Todo({ todo, index, completeTodo, removeTodo }) {
+  return (
+    <div
+      className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    >
+      {todo.text}
 
-  addItem() {
-    //Create item with unique id
-    const newItem = {
-      id: 1 + Math.random(),
-      value: this.state.newItem.slice()
-    };
-
-    //copy of current list of items
-    const list = [...this.state.list];
-
-    //add new item to list
-    list.push(newItem);
-
-    //update state with new list and reset newItem input
-    this.setState({
-      list,
-      newItem: ""
-    });
-  }
-
-  deleteItem(id) {
-    //copy of current list of items
-    const list = [...this.state.list];
-
-    //filter out item being deleted
-
-    const updatedList = list.filter(item => item.id !== id);
-
-    this.setState({ list: updatedList });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div>
-          Add an item...
-          <br />
-          <input
-            type="text"
-            placeholder="Type item here..."
-            value={this.state.newItem}
-            onChange={e => this.updateInput("newItem", e.target.value)}
-          />
-          <button onClick={() => this.addItem()}>Add</button>
-          <br />
-          <ul>
-            {this.state.list.map(item => {
-              return (
-                <li key={item.id}>
-                  {item.value}
-                  <button onClick={() => this.deleteItem(item.id)}>x</button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => removeTodo(index)}>x</button>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
+function TodoForm({ addTodo }) {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
+}
+
+function App() {
+  const [todos, setTodos] = useState([
+    {
+      text: "Learn about React",
+      isCompleted: false
+    },
+    {
+      text: "Meet friend for lunch",
+      isCompleted: false
+    },
+    {
+      text: "Build really cool todo app",
+      isCompleted: false
+    }
+  ]);
+
+  const addTodo = text => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className="App">
+      <div className="todo-list">
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+          />
+        ))}
+        <TodoForm addTodo={addTodo} />
+      </div>
+    </div>
+  );
 }
 
 export default App;
