@@ -11,13 +11,21 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
+    <form className="form-inline" onSubmit={handleSubmit}>
+      <div className="form-group">
+        <input
+          type="text"
+          className="input"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        />
+      </div>
+      <button
+        className="add-btn btn btn-success"
         onChange={e => setValue(e.target.value)}
-      />
+      >
+        Add Todo
+      </button>
     </form>
   );
 }

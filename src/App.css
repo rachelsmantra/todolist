@@ -1,3 +1,18 @@
+body {
+  font-family: "Lato";
+  background: rgb(244, 244, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(244, 244, 244, 1) 0%,
+    rgba(129, 147, 146, 0.9801136363636364) 52%,
+    rgba(154, 154, 154, 1) 81%
+  );
+}
+
+.header {
+  color: #fff;
+}
+
 .app {
   background: #209cee;
   padding: 30px;
@@ -21,4 +36,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.btn-danger {
+  padding: 1px 4px;
+  margin: 3px;
+  font-size: 12px;
+}
+.complete-btn {
+  border: none;
+  font-size: 12px;
+}
+
+.add-btn {
+  padding: 2px 1px;
+  margin: 4px;
+}
+
+.todo {
+  font-size: 15px;
 }

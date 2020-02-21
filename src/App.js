@@ -4,12 +4,7 @@ import TodoForm from "./Components/Todoform/todo-form";
 import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      text: "",
-      isCompleted: false
-    }
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const addTodo = text => {
     const newTodos = [...todos, { text }];
@@ -30,17 +25,22 @@ function App() {
 
   return (
     <div className="App">
-      <div className="todo-list">
-        {todos.map((todo, index) => (
-          <Todo
-            key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        ))}
-        <TodoForm addTodo={addTodo} />
+      <div className="d-flex flex-column align-items-center">
+        <div className="header">
+          <h1>Todo List</h1>
+        </div>
+        <div className="todo-list">
+          {todos.map((todo, index) => (
+            <Todo
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
+          <TodoForm addTodo={addTodo} />
+        </div>
       </div>
     </div>
   );
