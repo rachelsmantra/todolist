@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../app.css";
+import "./todo-list-styles.css";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -20,22 +21,23 @@ function ArticleList() {
 
   return (
     <div>
-      <h4>
-        What do you need to do?
-        <Link
-          to="/articles/new"
-          className="btn btn-success add-btn float-right"
-        >
-          Add todo
-        </Link>
-      </h4>
+      <div className="todo-question d-flex flex-row justify-content-center">
+        <div class="p-2">
+          <p>What do you need to do?</p>
+        </div>
+        <div class="p-2">
+          <Link to="/articles/new" className="btn btn-success add-btn">
+            Add todo
+          </Link>
+        </div>
+      </div>
       <hr />
       {articles.map(article => {
         return (
           <div key={article._id}>
-            <p className="todo-item-links">
+            <h6 className="todo-item-links">
               <Link to={`/articles/${article._id}`}>{article.title}</Link>
-            </p>
+            </h6>
 
             <hr />
           </div>

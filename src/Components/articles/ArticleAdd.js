@@ -28,7 +28,7 @@ function ArticleAdd(props) {
   }
 
   return (
-    <div>
+    <div style={{ padding: 10 }}>
       <h1>Add ToDo</h1>
       <hr />
       <form onSubmit={handleSubmit}>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./todo-info-styles.css";
 
 function ArticleInfo(props) {
   const [article, setArticle] = useState({});
@@ -36,7 +37,7 @@ function ArticleInfo(props) {
       <h2>{article.title}</h2>
 
       <p>{article.content}</p>
-      <div className="btn-group">
+      <div className="todo-info btn-group">
         <Link to={`/articles/${article._id}/edit`} className="btn btn-primary">
           Edit
         </Link>

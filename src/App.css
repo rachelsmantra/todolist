@@ -6,10 +6,12 @@ body {
 
 .main-container {
   margin-top: 50px;
+  margin: 20px 30px;
 }
 
-.header {
-  color: #fff;
+.header h1 {
+  margin-top: 30px;
+  font-family: "Merriweather";
 }
 
 .app {
@@ -18,10 +20,8 @@ body {
   height: 100vh;
 }
 
-.todo-list {
-  border-radius: 4px;
-  padding: 5px;
-  max-width: 400px;
+.todo-list-container {
+  width: 400px;
 }
 
 .todo {
@@ -36,11 +36,6 @@ body {
   justify-content: space-between;
 }
 
-.btn-danger {
-  padding: 1px 4px;
-  margin: 3px;
-  font-size: 12px;
-}
 .complete-btn {
   border: none;
   font-size: 12px;
