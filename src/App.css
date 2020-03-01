@@ -1,12 +1,11 @@
 body {
   font-family: "Lato";
   background: rgb(244, 244, 244);
-  background: linear-gradient(
-    90deg,
-    rgba(244, 244, 244, 1) 0%,
-    rgba(129, 147, 146, 0.9801136363636364) 52%,
-    rgba(154, 154, 154, 1) 81%
-  );
+  background: #eee;
+}
+
+.main-container {
+  margin-top: 50px;
 }
 
 .header {
@@ -20,7 +19,6 @@ body {
 }
 
 .todo-list {
-  background: #e8e8e8;
   border-radius: 4px;
   padding: 5px;
   max-width: 400px;
@@ -58,5 +56,15 @@ body {
 }
 
 .todo-item-links a {
-  color: rgb(13, 37, 114);
+  color: #000;
+}
+
+.nav-item p {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.weather-container {
+  padding: 10px;
 }

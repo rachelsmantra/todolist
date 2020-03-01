@@ -13,6 +13,7 @@ import ArticleList from "./components/articles/ArticleList";
 import ArticleInfo from "./components/articles/ArticleInfo";
 import ArticleAdd from "./components/articles/ArticleAdd";
 import ArticleEdit from "./components/articles/ArticleEdit";
+import Forecast from "./components/Forecast/Forecast";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -36,9 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="d-flex flex-column align-items-center">
+      <div className="d-flex flex-row justify-content-around main-container">
         <div className="todo-list">
-          <div className="App">
+          <div className="App bg-light card">
             <Router>
               <Navigation />
               <div className="container">
@@ -47,6 +48,9 @@ function App() {
             </Router>
           </div>
         </div>
+        <div className="weather-container">
+          <Forecast />
+        </div>
       </div>
     </div>
   );
@@ -54,7 +58,7 @@ function App() {
 
 function Navigation() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav className="card bg-dark mb-4">
       <div className="container">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -64,7 +68,7 @@ function Navigation() {
               activeClassName="active"
               to="/articles"
             >
-              Todo List
+              <p>Todo List</p>
             </NavLink>
           </li>
         </ul>

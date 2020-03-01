@@ -33,9 +33,9 @@ function ArticleList() {
       {articles.map(article => {
         return (
           <div key={article._id}>
-            <h4 className="todo-item-links">
+            <p className="todo-item-links">
               <Link to={`/articles/${article._id}`}>{article.title}</Link>
-            </h4>
+            </p>
 
             <hr />
           </div>
