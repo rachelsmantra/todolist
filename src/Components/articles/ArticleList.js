@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "../../app.css";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -19,20 +20,23 @@ function ArticleList() {
 
   return (
     <div>
-      <h2>
-        Articles
-        <Link to="/articles/new" className="btn btn-primary float-right">
-          Create Article
+      <h4>
+        What do you need to do?
+        <Link
+          to="/articles/new"
+          className="btn btn-success add-btn float-right"
+        >
+          Add todo
         </Link>
-      </h2>
+      </h4>
       <hr />
       {articles.map(article => {
         return (
           <div key={article._id}>
-            <h4>
+            <h4 className="todo-item-links">
               <Link to={`/articles/${article._id}`}>{article.title}</Link>
             </h4>
-            <small>_id: {article._id}</small>
+
             <hr />
           </div>
         );

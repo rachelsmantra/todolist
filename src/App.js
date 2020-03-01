@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Todo from "./components/Todo/todo";
 import TodoForm from "./components/Todoform/todo-form";
-import "./App.css";
+import "./app.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -37,20 +37,7 @@ function App() {
   return (
     <div className="App">
       <div className="d-flex flex-column align-items-center">
-        <div className="header">
-          <h1>Todo List</h1>
-        </div>
         <div className="todo-list">
-          {todos.map((todo, index) => (
-            <Todo
-              key={index}
-              index={index}
-              todo={todo}
-              completeTodo={completeTodo}
-              removeTodo={removeTodo}
-            />
-          ))}
-          <TodoForm addTodo={addTodo} />
           <div className="App">
             <Router>
               <Navigation />
@@ -71,18 +58,13 @@ function Navigation() {
       <div className="container">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink exact className="nav-link" activeClassName="active" to="/">
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item">
             <NavLink
               exact
               className="nav-link"
               activeClassName="active"
               to="/articles"
             >
-              Articles
+              Todo List
             </NavLink>
           </li>
         </ul>

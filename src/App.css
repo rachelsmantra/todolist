@@ -49,10 +49,14 @@ body {
 }
 
 .add-btn {
-  padding: 2px 1px;
+  padding: 2px 2px;
   margin: 4px;
 }
 
 .todo {
   font-size: 15px;
+}
+
+.todo-item-links a {
+  color: rgb(13, 37, 114);
 }
